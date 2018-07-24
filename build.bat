@@ -7,8 +7,14 @@ if not "%ProgramFiles(x86)%" == "" set PROGFILES=%ProgramFiles(x86)%
 REM Check if Visual Studio 2017 is installed
 set MSVCDIR="%PROGFILES%\Microsoft Visual Studio\2017"
 set VCVARSALLPATH="%PROGFILES%\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"
+set VCVARSALLPATHE="%PROGFILES%\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build\vcvarsall.bat"
 if exist %MSVCDIR% (
   if exist %VCVARSALLPATH% (
+       set COMPILER_VER="2017"
+        echo Using Visual Studio 2017
+    goto setup_env
+  )
+  if exist %VCVARSALLPATHE% (
        set COMPILER_VER="2017"
         echo Using Visual Studio 2017
     goto setup_env
